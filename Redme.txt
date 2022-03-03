@@ -1,0 +1,84 @@
+version java 11
+Starting class to start the project: FootballManagerApplication
+8085 port is used
+
+teams
+GET /allTeams
+return 
+{"idteams":3,
+"name_teams":"FC Carpathians",
+"cash_balance":1500000.0,
+"commission":7.1}
+
+POST /addTeams
+example
+   {
+        "name_teams": "FC Scala",
+        "cash_balance": 15000000.0,
+        "commission": 6
+    }
+DELETE /deleteTeams/{id}
+exemple /deleteTeams/6
+PUT /updateTeams
+example
+{
+    "idteams":4,
+    "name_teams":"FC Lviv",
+    "cash_balance":15000.0,
+    "commission":5.0
+    }
+
+players
+Get /allPlayers
+return 
+{
+        "idplayers": 4,
+        "first_name": "Lionel",
+        "last_name": "Messi",
+        "age": 34,
+        "experience": 300,
+        "teams": {
+            "idteams": 3,
+            "name_teams": "FC Carpathians",
+            "cash_balance": 1500000.0,
+            "commission": 0.0
+        }
+    }
+POST /addPlayers
+example
+{
+        "first_name": "Sergey",
+        "last_name": "Myakushko",
+        "age": 34,
+        "experience": 280,
+        "teams": {
+            "idteams": 4        
+        }
+    }
+DELETE /deletePlayer/{id}
+example /deletePlayer/4
+PUT /updatePlayers
+example 
+{
+        "first_name": "Sergey",
+        "last_name": "Myakushko",
+        "age": 32,
+        "experience": 280,
+        "teams": {
+            "idteams": 4        
+        }
+    }
+GET /changeTeam/{idPlayers}/{teams_id}(the player changed the team the balance has not changed)
+example /changeTeam/4/4
+{
+        "idplayers": 4,
+        "first_name": "Lionel",
+        "last_name": "Messi",
+        "age": 34,
+        "experience": 300,
+        "teams": {
+            "idteams": 3
+        }
+    }
+
+
